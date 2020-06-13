@@ -24,9 +24,9 @@ def largestRange(array):
 		if checkList[i]:
 			left=i
 			right=i
-			while nextNumber[left]!=left:
+			while prevNumber[left]!=left:
 				checkList[left]=False
-				left=nextNumber[left]
+				left=prevNumber[left]
 				
 			while nextNumber[right]!=right:
 				checkList[right]=False
