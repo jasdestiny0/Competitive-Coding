@@ -22,7 +22,7 @@ def cellMitiosis(n,x,y,z):
         if i%2 == 0:
             ans = min((dp[i//2]+x),(dp[i-1]+y)) 
         else:
-            ans = min((dp[i-1]+y),(dp[(i-1)//2]+x+z))
+            ans = min((dp[i-1]+y),(dp[(i+1)//2]+x+z))
         
         dp[i] = ans
     
