@@ -5,15 +5,15 @@ class LinkedList:
         self.next = None
 		
 def findLoop(head):
-	visited={}
-	node=head
-    while node!=None:
-		try:
-			if visited[node.value]==True:
-				break
-		except:
-			visited[node.value]=True
-			node=node.next
-	return node
+	turtle=head.next.next
+	hare=head.next
+	while turtle!=hare:
+		turtle=turtle.next.next
+		hare=hare.next
+	turtle=head
+	while hare!=turtle:
+		hare=hare.next
+		turtle=turtle.next
+	return hare
 		
 	
