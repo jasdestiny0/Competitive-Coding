@@ -1,4 +1,4 @@
-def sor(n):  
+def soe(n):  
     prime = [True for i in range(n+1)] 
     number = 2
     while (number * number <= n): 
@@ -13,4 +13,4 @@ def sor(n):
             pnoList.append(number)
 
     return pnoList
-print(sor(1000))
+print(soe(1000))
