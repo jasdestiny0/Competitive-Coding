@@ -25,16 +25,16 @@ class DoublyLinkedList:
 		
 	
     def insertBefore(self, node, nodeToInsert):
-		if nodeToInsert==self.head and nodeToInsert==self.tail:
-			return
-		self.remove(nodeToInsert)
-		nodeToInsert.prev=node.prev
-		nodeToInsert.next=node
-		if node.prev ==None:
-			self.head=nodeToInsert
-		else:
-			node.prev.next=nodeToInsert
-		node.prev=nodeToInsert
+	if nodeToInsert==self.head and nodeToInsert==self.tail:
+		return
+	self.remove(nodeToInsert)
+	nodeToInsert.prev=node.prev
+	nodeToInsert.next=node
+	if node.prev ==None:
+		self.head=nodeToInsert
+	else:
+		node.prev.next=nodeToInsert
+	node.prev=nodeToInsert
 		
 
     def insertAfter(self, node, nodeToInsert):
@@ -90,10 +90,10 @@ class DoublyLinkedList:
 	def removenodebindings(self,node):
 		if node.prev!=None:
 			node.prev.next=node.next
-			
+
 		if node.next!=None:
 			node.next.prev=node.prev
-			
+
 		node.next=None
 		node.prev=None
 			
