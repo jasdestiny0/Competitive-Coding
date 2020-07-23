@@ -3,7 +3,7 @@ class Node:
         self.value = value
         self.prev = None
         self.next = None
-        
+	
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
@@ -11,17 +11,17 @@ class DoublyLinkedList:
 
     def setHead(self, node):
         if self.head==None:
-			self.head=node
-			self.tail=node
-			return 
-		self.insertBefore(self.head,node)
+		self.head=node
+		self.tail=node
+		return 
+	self.insertBefore(self.head,node)
 
     def setTail(self, node):
         if self.tail==None:
-			self.setHead(node)
-			return
+		self.setHead(node)
+		return
 		
-		self.insertAfter(self.tail,node)
+	self.insertAfter(self.tail,node)
 		
 	
     def insertBefore(self, node, nodeToInsert):
@@ -40,52 +40,52 @@ class DoublyLinkedList:
     def insertAfter(self, node, nodeToInsert):
         if self.head==nodeToInsert and self.tail==nodeToInsert:
 			return
-		self.remove(nodeToInsert)
-		nodeToInsert.prev=node
-		nodeToInsert.next=node.next
-		if node.next==None:
-			self.tail=nodeToInsert
-		else:
-			node.next.prev=nodeToInsert
-		node.next=nodeToInsert
+	self.remove(nodeToInsert)
+	nodeToInsert.prev=node
+	nodeToInsert.next=node.next
+	if node.next==None:
+		self.tail=nodeToInsert
+	else:
+		node.next.prev=nodeToInsert
+	node.next=nodeToInsert
 
     def insertAtPosition(self, position, nodeToInsert):
         if position==1:
-			self.setHead(nodeToInsert)
-			return
-		node=self.head
-		currentPosition=1
-		while node is not None and currentPosition!=position:
-			node=node.next
-			currentPosition+=1
-		if node is not None:
-			self.insertBefore(node,nodeToInsert)
-		else:
-			self.setTail(nodeToInsert)
+		self.setHead(nodeToInsert)
+		return
+	node=self.head
+	currentPosition=1
+	while node is not None and currentPosition!=position:
+		node=node.next
+		currentPosition+=1
+	if node is not None:
+		self.insertBefore(node,nodeToInsert)
+	else:
+		self.setTail(nodeToInsert)
 
     def removeNodesWithValue(self, value):
         node=self.head
-		while node!=None:
-			nodeToRemove=node
-			node=node.next
-			if nodeToRemove.value==value:
-				self.remove(nodeToRemove)
+	while node!=None:
+		nodeToRemove=node
+		node=node.next
+		if nodeToRemove.value==value:
+			self.remove(nodeToRemove)
 
     def remove(self, node):
         if node==self.head:
-			self.head=self.head.next
-		if node==self.tail:
-			self.tail=self.tail.prev
-		self.removenodebindings(node)
+		self.head=self.head.next
+	if node==self.tail:
+		self.tail=self.tail.prev
+	self.removenodebindings(node)
 		
 
     def containsNodeWithValue(self, value):
     	node=self.head
-		while node!=None:
-			if node.value==value:
-				return True
-			node=node.next
-		return False
+	while node!=None:
+		if node.value==value:
+			return True
+		node=node.next
+	return False
 	
 	def removenodebindings(self,node):
 		if node.prev!=None:
