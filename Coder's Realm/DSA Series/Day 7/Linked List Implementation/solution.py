@@ -36,7 +36,12 @@ class linkedList:
             newNode=newNode.next
     
     def delete(self, number):
-        if self.head.value==number:
+        if self.head.next==None:
+            self.head=None
+            self.tail=None
+            return
+        
+        elif self.head.value==number:
             self.head=self.head.next
             return
         
@@ -47,3 +52,13 @@ class linkedList:
                 prevNode.next=nextNode.next
             prevNode=prevNode.next
             nextNode=nextNode.next
+    
+    def delete(self):
+        if self.head.next==None:
+            self.head=None
+            self.tail=None
+            return
+        self.head=self.head.next
+    
+                
+            
