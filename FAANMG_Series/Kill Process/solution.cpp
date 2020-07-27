@@ -1,3 +1,28 @@
+/*
+Given a list of processes where each process have a unique id and a unique parent id . Parent id is the id of the process that initiated that process . You want to kill a particular process given by an integer kill . Print id of all the processes that will be killed to kill that process.You should print them in sorted order by id.
+In order to kill a process , all its child processes should be killed as well . Also, only one process have parent id as 0 ie. that process started itself.
+
+Input Format
+The first line contains two integer - n (number of process ) and k (id of process to be killed).
+Next line contains n integer equal to id of ith process.
+Last line contains n integer equal to parent id of ith process.
+
+Constraints
+1<=n<=10^5
+
+Output Format
+Print id of all the process that will be killed in sorted order.
+
+Sample Input
+3 2
+1 2 3
+0 1 1
+Sample Output
+2
+Explanation
+Since , process with id 2 have no child , so it will only be killed.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
