@@ -1,6 +1,4 @@
 /*
-In their new movie, Avengers have a new Superhero.This new Superhero has a string all the time.His power at a particular time is equal to number of palindromic substring in the string present at that time.
-Now,avengers want to make a program that calculate it's power at different instant of time.Help the avengers in doing so.
 So,your task is to print the number of palindromic substring in the given string.
 A string is called palindrome if its reverse is equal to the string itself eg. "aba"
 The substrings with different start indexes or end indexes are counted as different substrings even if they consist of same characters.
