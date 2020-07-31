@@ -8,7 +8,7 @@ def knapsackProblem(items,capacity):
 				sack[i][j]=max(sack[i-1][j-currentWeight]+currentValue,  sack[i-1][j])
 			else:
 				sack[i][j]=sack[i-1][j]
-	return [0,[]]
+	return sack[-1][-1]
 
 
 	
