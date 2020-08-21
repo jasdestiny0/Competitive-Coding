@@ -1,7 +1,7 @@
 # Time O(n) Space O(n)
 
 def twoNumberSum(array, targetSum):
-    dict1={}
+    	dict1={}
 	for i in array:
 		if targetSum-i in dict1:
 			return [targetSum-i,i]
