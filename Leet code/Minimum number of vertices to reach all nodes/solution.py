@@ -21,7 +21,6 @@ def print1(n, edges):
         bfs[i]=len(set(bfs1[i]))
 
     print(bfs)
-    
     maxi=max(bfs)  
     sol=[]
 
