@@ -1,4 +1,4 @@
-def sameBsts(arrayOne, arrayTwo):
+def sameTree(arrayOne, arrayTwo):
 	t1=tree()
 	t2=tree()
 	
