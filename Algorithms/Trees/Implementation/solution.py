@@ -50,10 +50,26 @@ class tree:
         else:
             return
 
+    def isPresent(self,n,number):
+        if self.root==None or n==None:
+            return False
+        if number<n.value:
+            if n.left==None:
+                return False
+            else:
+                return self.isPresent(n.left,number)
+        elif number>n.value:
+            if n.right==None:
+                return False
+            else:
+                return self.isPresent(n.right,number)
+        else:
+            return True
+
 choice=0
 t=tree()
 while choice!=-1:
-    print("Enter choice (1:insert|2:inorder|3:preorder|4:postorder|-1:Exit):")
+    print("Enter choice (1:insert|2:inorder|3:preorder|4:postorder|5:isPresent|-1:Exit):")
     choice=int(input())
     if choice==1:
         print("Enter number to be added")
@@ -67,3 +83,6 @@ while choice!=-1:
     elif choice==4:
         print("Postorder")
         t.postoder(t.root)
+    elif choice==5:
+        num=int(input("Enter number to check"))
+        print(t.isPresent(t.root,num))
