@@ -3,7 +3,7 @@ for testcase in range(testcases):
     n=int(input())
     l=list(map(int,input().split()))
     if n<3:
-        print(n)
+        print("Case #"+str(testcase+1)+": "+str(n))
         continue
     longest=2
     current=2
