@@ -12,7 +12,6 @@ def triple_sum(arr, num):
             if abs(num-currentSum)<smallestDiff:
                 smallestDiff=num-currentSum
                 sumSoln=currentSum
-            
             if num<currentSum:
                 p1+=1
             elif num>currentSum:
@@ -20,5 +19,4 @@ def triple_sum(arr, num):
             else:
                 break
     return sumSoln
-
-print(triple_sum([-1, 2, 1, -4], 1))
+print(triple_sum([-1, 1, 1, -4], 1))
