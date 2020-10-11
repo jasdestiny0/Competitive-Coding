@@ -8,4 +8,5 @@ def retModifiedSoe(n):
 
 def ndiv(n):
     sieve=retModifiedSoe(n)
-    
+    count=0
+
