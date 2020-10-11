@@ -4,7 +4,7 @@ def retModifiedSoe(n):
     for i in range(1,int((n+1)/2)+1,1):
         for j in range(i, n+1, i):
             soe[j]+=1
-    return soe
+    return soe      
 
 def ndiv(a,b,n):
     sieve=retModifiedSoe(b)
