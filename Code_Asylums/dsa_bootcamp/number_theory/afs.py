@@ -6,9 +6,17 @@ def retModifiedSoe(n):
             soe[j]+=1
     return soe      
 
-def ndiv(arr):
+def afs(testcases,arr):
     sieve=retModifiedSoe(max(arr))
-    solution=[0,0]
-    for i in range()
-print(ndiv(1,7,2))
+    seq=[0,0]
+    for i in range(2,max(arr)+1,1):
+        seq.append(seq[-1]+sieve[i])
+    solution=[]
+    print(sieve)
+    print(seq)
+    for i in arr:
+        solution.append(seq[i])
+    return solution
+    
+print(afs(3,[3,4,5]))
 
