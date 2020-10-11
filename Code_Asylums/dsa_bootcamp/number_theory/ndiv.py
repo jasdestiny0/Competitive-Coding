@@ -9,7 +9,10 @@ def retModifiedSoe(n):
 def ndiv(a,b,n):
     sieve=retModifiedSoe(b)
     count=0
-    for i in range(0,b+1,1):
-        
+    for i in range(a,b+1,1):
+        if sieve[i]==n:
+            count+=1
+    return count, sieve[1:]
 
+print(ndiv(1,7,2))
 
