@@ -6,8 +6,9 @@ def retModifiedSoe(n):
             soe[j]+=1
     return soe      
 
-def ndiv(a,b,n):
-    sieve=retModifiedSoe(b)
-    solution=[0 for ]
+def ndiv(arr):
+    sieve=retModifiedSoe(max(arr))
+    solution=[0,0]
+    for i in range()
 print(ndiv(1,7,2))
 
