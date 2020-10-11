@@ -6,7 +6,10 @@ def retModifiedSoe(n):
             soe[j]+=1
     return soe
 
-def ndiv(n):
-    sieve=retModifiedSoe(n)
+def ndiv(a,b,n):
+    sieve=retModifiedSoe(b)
     count=0
+    for i in range(0,b+1,1):
+        
+
 
