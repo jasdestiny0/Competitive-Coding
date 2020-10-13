@@ -1,37 +1,33 @@
-class node:
+class tree:
     def __init__(self,val):
         self.value=val
         self.left=None
         self.right=None
 
-class tree:
-    def __init__(self, node=None):
-        self.root=node
-
-    def __inorder__(self, node):
-        self.inorder(node.left)
-        if node!=None:
-            print(node.value)
-        else:
-            return
-        self.inorder(node.right)
+    def inorder(self):
+        if self.left!=None:
+            self.left.inorder()
+        print(self.value)
+        if self.right!=None:
+            self.right.inorder()
     
-    def insert(self, node, val):
-        if self.root==None:
-            self.root=node(val)
-            return
-
-        if node.value>=val and node.right==None:
-            node.right=node(val)
-            return
-
-        elif node.value>=val:
-            self.insert(node.right, val)
-
-        elif node.value<val and node.left==None:
-            node.left=node(val)
-            return
-
-        else:
-            self.insert(node.left, val)
+    def insert(self, val):
+        if self.left==None and self.value>val:
+            self.left=tree(val)
+        elif self.value>val:
+            self.left.insert(val)
+        elif self.right==None and self.value<=val:
+            self.right=tree(val)
+        elif self.right<=val:
+            self.right.insert(val)
+t=tree(1)
+while True:
+    option=int(input())
+    if option==1:
+        n=int(input())
+        t.insert(n)
+        print("Printing the tree")
+        t.inorder()
+    if option==2:
+        break
 
