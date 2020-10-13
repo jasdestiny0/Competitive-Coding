@@ -10,7 +10,7 @@ class tree:
         print(self.value)
         if self.right!=None:
             self.right.inorder()
-    
+
     def insert(self, val):
         if self.left==None and self.value>val:
             self.left=tree(val)
@@ -22,20 +22,17 @@ class tree:
             self.right.insert(val)
 
     def leftview(self, currentDepth=1, exploredDepth=0):
-        exploredDepth1=exploredDepth
-        exploredDepth2=exploredDepth
-
-        if self.left!=None:
-            exploredDepth1=self.leftview(currentDepth+1,exploredDepth)
-    
         if exploredDepth<currentDepth:
             exploredDepth+=1
-        print(self.value)
+            print(self.value)
+
+        if self.left!=None:
+            exploredDepth=self.left.leftview(currentDepth+1,exploredDepth)
 
         if self.right!=None:
-            exploredDepth2=self.leftview(currentDepth+1, exploredDepth)
+            exploredDepth=self.right.leftview(currentDepth+1, exploredDepth)
 
-        return max(exploredDepth, exploredDepth1, exploredDepth2)
+        return exploredDepth
         
 
 t=tree(8)
@@ -49,6 +46,7 @@ while True:
         print("Printing the tree")
         t.inorder()
     if option==2:
+        print("Printing the left side only")
         t.leftview()
     if option==3:
         break
