@@ -5,6 +5,7 @@ class linked_list:
     
     def insert(self, val):
         if self.root==None:
+            print("hello")
             n=node(val)
             self.root=n
             self.tail=n
@@ -12,6 +13,7 @@ class linked_list:
         n=self.root
         while n.next!=None:
             n=n.next
+        print("print",self.root.value)
         m=node(val)
         n.next=m
         m.prev=n
@@ -22,6 +24,7 @@ class linked_list:
     def printLl(self):
         print("Printing the linked list")
         n=self.root
+        print("root ",n.value)
         while n!=None:
             print(n.value)
             n=n.next
