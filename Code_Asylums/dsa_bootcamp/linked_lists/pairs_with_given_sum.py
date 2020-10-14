@@ -55,4 +55,7 @@ while True:
         print(ll.turtle_and_hare())
     elif option==4:
         ll.printLl()
+    elif option==5:
+        ll.printLlReverse()
+    else:
         break
