@@ -31,7 +31,7 @@ class tree:
 
         if self.right!=None:
             exploredDepth=self.right.leftview(currentDepth+1, exploredDepth)
-
+            
         return exploredDepth
         
 
