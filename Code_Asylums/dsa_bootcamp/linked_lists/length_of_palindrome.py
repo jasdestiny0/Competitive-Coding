@@ -37,6 +37,5 @@ class node:
 
 
 ll=linked_list()
-
-
-while True:
+ll.insert(5)
+ll.insert(4)
