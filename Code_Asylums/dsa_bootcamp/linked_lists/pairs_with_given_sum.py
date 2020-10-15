@@ -1,64 +1,66 @@
-class linked_list:
-    def __init__(self, node=None):
-        self.root=node
-        self.tail=node
+class linkedList:
+    def __init__(self):
+        self.head=None
+        self.tail=None
     
     def insert(self, val):
-        if self.root==None:
-            print("hello")
-            n=node(val)
-            self.root=n
-            self.tail=n
+        if self.head==None:
+            self.head=self.tail=node(val)
             return
-        n=self.root
+        n=self.head
         while n.next!=None:
             n=n.next
-        print("print",self.root.value)
         m=node(val)
-        n.next=m
         m.prev=n
-        self.tail.value=m.value
-        self.tail.next=m.next
-
-
+        n.next=m
+        self.tail=m
+    
     def printLl(self):
-        print("Printing the linked list")
-        n=self.root
-        print("root ",n.value)
-        while n!=None:
-            print(n.value)
-            n=n.next
+        m=self.head
+        while m!=None:
+            print(m.value)
+            m=m.next
 
     def printLlReverse(self):
-        print("Printing the linked list reverse")
-        n=self.tail
-        while n!=None:
-            print(n.value)
-            n=n.prev
+        m=self.tail
+        while m!=None:
+            print(m.value)
+            m=m.prev
+
+    def pairsWithGivenSum(self, n):
+        l=self.head
+        r=self.tail
+        solution=[]
+        while l.value<=r.value:
+            if (l.value+r.value)<n:
+                l=l.next
+            elif (l.value+r.value)>n:
+                r=r.prev
+            else:
+                solution.append([r.value, l.value,])
+                l=l.next
+                r=r.prev
+        return solution
+
+
+
 
 class node:
     def __init__(self, val):
         self.value=val
-        self.next=None
         self.prev=None
+        self.next=None
 
-ll=linked_list()
-
-while True:
-    option=int(input("Enter option: "))
-    if option==1:   
-        number=int(input("Enter the number: "))
-        ll.insert(number)
-        ll.printLl()
-    #forming circular linked list
-    elif option==2:
-        ll.cirularify()
-    #calculating the length
-    elif option==3:
-        print(ll.turtle_and_hare())
-    elif option==4:
-        ll.printLl()
-    elif option==5:
-        ll.printLlReverse()
-    else:
-        break
+ll=linkedList()
+ll.insert(1)
+ll.insert(2)
+ll.insert(3)
+ll.insert(4)
+ll.insert(5)
+ll.insert(6)
+ll.insert(8)
+ll.insert(9)
+print("Printing Linked List")
+ll.printLl()
+print("pairs with given sum")
+print(ll.pairsWithGivenSum(7))
