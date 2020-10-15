@@ -27,7 +27,25 @@ class linked_list:
             count+=1
             turtle=turtle.next
             hare=hare.next.next
-        return count    
+        return count   
+
+    def  remove_duplicates(self):
+        n=self.root
+        while n.next!=None:
+            if n.value==n.next.value:
+                n.next=n.next.next
+                continue
+            n=n.next
+    
+    def length_of_palindrome(self):
+        if self.root.next==None:
+            return 1
+        prev=None
+        n=self.root
+        while n!=None:
+            
+
+
 
 class node:
     def __init__(self, val):
@@ -35,7 +53,16 @@ class node:
         self.next=None
 
 
-
 ll=linked_list()
-ll.insert(5)
-ll.insert(4)
+while True:
+    option=int(input("Enter option: "))
+    if option==1:   
+        number=int(input("Enter the number: "))
+        ll.insert(number)
+        ll.printLl()
+    #forming circular linked list
+    elif option==2:
+        ll.remove_duplicates()
+        ll.printLl()
+    else:
+        break
