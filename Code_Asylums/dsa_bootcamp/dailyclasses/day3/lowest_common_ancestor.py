@@ -23,13 +23,17 @@ class tree:
 
     def lowestCommonAncestor(self, x, y):
         node=self.helper(self, x, y)
-        return node.value
+        if type(node)!=int:
+            return node.value
+        else:
+            return "Either one or neither nodes exist"
 
     def helper(self, node, x, y):
         sumVal=0
         if x==node.value or y==node.value:
             return 1
         
+        s1=s2=0
         if node.left!=None:
             s1=self.helper(node.left, x, y)
         if node.right!=None:
@@ -41,18 +45,19 @@ class tree:
             return s2
         elif s1+s2==2:
             return node
+        else:
+            return s1+s2
 
         
-t=tree(2)
+t=tree(50)
+l=[17, 72, 12, 23, 54, 76, 9, 14, 19, 67]
+for i in l:
+    t.insert(i)
+t.inorder()
 while True:
     print("Enter option")
     option=int(input())
-    if option==1:
-        n=int(input("Enter number"))
-        t.insert(n)
-        print("Printing the tree")
-        t.inorder()
-    elif option==2:
+    if option!=0:
         x,y=[int(i) for i in input("Enter the two nodes").split(' ')]
         print(t.lowestCommonAncestor(x,y))
     else:
