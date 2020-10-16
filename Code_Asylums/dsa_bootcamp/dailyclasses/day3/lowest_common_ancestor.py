@@ -5,7 +5,7 @@ class tree:
         self.right=None
 
     def inorder(self):
-        if self.left!=None:
+        if self.left!=None: 
             self.left.inorder()
         print(self.value)
         if self.right!=None:
@@ -48,18 +48,49 @@ class tree:
         else:
             return s1+s2
 
+    def levelOrderTraversal(self):
+        soln=[]
+        parents=[self]
+        while parents:
+            for i in parents:
+                soln.append(i.value)
+            children=[]
+            for i in parents:
+                if i.left!=None:
+                    children.append(i.left)
+                if i.right!=None:
+                    children.append(i.right)
+            parents=children.copy()
+        return soln
+
+    def verifyBst(self, max=float("-inf"), min=float("inf")):
+        if self.value<max or self.value>min:
+            print(self.value)
+            return False
+        s1=s2=True
+        if self.left!=None:
+            s1=self.left.verifyBst(max, self.value)
+        if self.right!=None:
+            s2=self.right.verifyBst(self.value, min)
+        return s1 and s2
+
         
 t=tree(50)
-l=[17, 72, 12, 23, 54, 76, 9, 14, 19, 67]
+l=[12, 51]
 for i in l:
     t.insert(i)
 t.inorder()
 while True:
-    print("Enter option")
+    print("Enter option: ")
     option=int(input())
-    if option!=0:
-        x,y=[int(i) for i in input("Enter the two nodes").split(' ')]
+    if option==0:
+        x,y=[int(i) for i in input("Enter the two nodes: ").split(' ')]
         print(t.lowestCommonAncestor(x,y))
+    elif option==1:
+        l=t.levelOrderTraversal()
+        print(l)
+    elif option==2:
+        print(t.verifyBst())
     else:
         break
 
