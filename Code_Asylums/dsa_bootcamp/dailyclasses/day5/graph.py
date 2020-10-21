@@ -3,13 +3,22 @@ class graph:
         self.value=x
         self.vertices=v
     
-    def ratTraverse(self, posX, posY, grid, destX=3, destY=3):
-        print(posX, posY)
+    def ratTraverse(self, posX, posY, grid, visited, destX=3, destY=3):
+        print(grid[posY][posX])
+        if posX>=len(grid[-1]) or posY>=len(grid):
+            print("here")
+            return False
+
+        if visited[posY][posX]==1:
+            return False
+
+        visited[posY][posX]=1
         if destX==posX and destY==posY:
             print("possible")
             return True
         
-        if grid[posY][posX]==0 or posX>=len(grid(-1)) or posY>=len(grid):
+        if grid[posY][posX]==0:
+            print("there")
             return False
 
         r=self.ratTraverse(posX+1, posY, grid, destX, destY)
@@ -19,15 +28,22 @@ class graph:
 
         if u or d or l or u:
             print("not possible")
-        return False
+            return False
             
 
 g=graph()
-print(g.ratTraverse(0,0,[
+grid=[
 [1,0,1,0],
 [1,1,0,0],
 [1,0,1,0],
 [1,1,1,1]
-],-1,-1))
+]
+visited=[
+[1,0,1,0],
+[1,1,0,0],
+[1,0,1,0],
+[1,1,1,1]
+]
+print(g.ratTraverse(0, 0, grid, visited, -1, -1))
 
     
